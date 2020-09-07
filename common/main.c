@@ -257,7 +257,8 @@ int abortboot(int bootdelay)
 	}
 
 #ifdef CONFIG_IPQ_ETH_INIT_DEFER
-	if (abort) {
+
+	if (1) {
 		puts("\nNet:   ");
 		eth_initialize(gd->bd);
 	}
@@ -388,7 +389,14 @@ void main_loop (void)
 # ifdef CONFIG_AUTOBOOT_KEYED
 		int prev = disable_ctrlc(1);	/* disable Control C checking */
 # endif
-
+     #ifdef CONFIG_CAL_SETTINGS
+			
+		  if(gd->caldata[0x1000] != 0x20 ||  gd->caldata[0x1001] != 0x2f )
+			{	
+			s = getenv ("cal");
+			run_command (s,0 );
+			}
+      #endif
 		run_command(s, 0);
 
 # ifdef CONFIG_AUTOBOOT_KEYED

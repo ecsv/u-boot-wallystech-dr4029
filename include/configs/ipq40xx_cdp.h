@@ -289,6 +289,7 @@ typedef struct {
 
 #ifdef CONFIG_QCA_APPSBL_DLOAD
 #define CONFIG_CMD_TFTPPUT
+#define CONFIG_CMD_TFTPSRV
 /* We will be uploading very big files */
 #undef CONFIG_NET_RETRY_COUNT
 #define CONFIG_NET_RETRY_COUNT 500
@@ -323,5 +324,8 @@ typedef struct {
 #define CONFIG_BOOTCOMMAND	"bootipq"
 #define CONFIG_BOOTDELAY	2
 #define CONFIG_IPQ_FDT_HIGH	0x87000000
+#define 	CONFIG_CAL_SETTINGS   \
+	 "tftpboot 0x84000000  calibration-fw.bin  && bootm 0x84000000  "
+#define  caladdr   0x170000
 
 #endif /* _IPQCDP_H */

@@ -87,6 +87,7 @@ typedef	struct	global_data {
 	unsigned long	post_log_res; /* success of POST test */
 	unsigned long	post_init_f_time; /* When post_init_f started */
 #endif
+	char        caldata[64*1024];
 } gd_t;
 
 /*

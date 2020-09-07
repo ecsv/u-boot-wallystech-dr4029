@@ -130,6 +130,10 @@ const uchar default_environment[] = {
 #ifdef	CONFIG_EXTRA_ENV_SETTINGS
 	CONFIG_EXTRA_ENV_SETTINGS
 #endif
+#ifdef  CONFIG_CAL_SETTINGS
+		"cal="	CONFIG_CAL_SETTINGS "\0"
+#endif
+
 	"\0"
 };
 
