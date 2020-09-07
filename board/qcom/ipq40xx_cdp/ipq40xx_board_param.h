@@ -1293,7 +1293,7 @@ board_ipq40xx_params_t board_params[] = {
 		.spi_nand_available = 1,
 		.nor_nand_available = 0,
 		.nor_emmc_available = 0,
-		.dtb_config_name = { "config@5", "config@ap.dk01.1-c2" },
+		.dtb_config_name = { "config@1", "config@ap.dk01.1-c2" },
 	},
 	{
 		.machid = MACH_TYPE_IPQ40XX_AP_DK04_1_C1,
@@ -1496,7 +1496,7 @@ board_ipq40xx_params_t board_params[] = {
 			pcie_board_cfg_dk07(0),
 		},
 #endif
-		.dtb_config_name = { "config@10", "config@ap.dk07.1-c1" },
+		.dtb_config_name = { "config@1", "config@ap.dk07.1-c1" },
 	},
 	{
 		.machid = MACH_TYPE_IPQ40XX_AP_DK07_1_C2,
