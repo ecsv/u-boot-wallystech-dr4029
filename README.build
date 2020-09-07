@@ -1,0 +1,22 @@
+Build via Debian Stretch ARM Cross-Compiler
+===========================================
+
+Only the cross compiler GCC 6.3 from Debian stretch is supported. Other
+versions create incompatible executables which tend to crash when accessing
+the network (or in similar situations).
+
+    sudo aptitude install build-essential binutils-multiarch gcc-arm-linux-gnueabi libc6-dev-armel-cross git
+
+    git clean -dfx
+    make ipq40xx_cdp_config
+    VERSION_CODE='Chaos Calmer 15.05.1' REVISION='unknown' make HOSTCC=arm-linux-gnueabi-gcc HOSTSTRIP=true CROSS_COMPILE=arm-linux-gnueabi- QSDK_CFLAGS="-Os -pipe -march=armv7-a -mtune=cortex-a7 -fno-caller-saves -Wno-error=unused-but-set-variable -Wno-error=unused-result -mfloat-abi=soft" QSDK_LDFLAGS=""
+    
+    cp u-boot wallystech-dr4029-uboot-stripped.elf
+    strip -s wallystech-dr4029-uboot-stripped.elf
+
+
+Installation via u-boot
+=======================
+
+    tftpboot wallystech-dr4029-uboot-stripped.elf && sf probe && sf erase 0xf0000 0x80000 && sf write 0x84000000 0xf0000 0x80000
+    sf probe && sf erase 0xe0000 0x10000
